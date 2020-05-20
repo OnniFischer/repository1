@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javaapplication1;
 import java.util.HashMap;
 
@@ -23,9 +18,9 @@ public class Maksukortti {
         int erotus = this.saldo - luku;
         int indeksi = 0;
         if (erotus > 0) {
-            this.saldo -= luku;
-            this.ostokset.put(0, luku);
-            indeksi++;
+            this.saldo -= luku;          
+            this.ostokset.put(indeksi, luku);
+            indeksi++;          
         }
     }
 
@@ -43,6 +38,11 @@ public class Maksukortti {
         }
     }
     
-    
+    public void tulostaArvo(Maksukortti kortti) {
+        System.out.println(kortti.toString());
+    }
 
+    public String toString() {
+        return "Kortilla on rahaa " + this.saldo + " euroa.";
+    }
 }

@@ -9,9 +9,6 @@ package javaapplication1;
  *
  * @author OnniFischer
  */
-public class Kayttoliittyma {
-    
-    
-    
+class str {
     
 }
