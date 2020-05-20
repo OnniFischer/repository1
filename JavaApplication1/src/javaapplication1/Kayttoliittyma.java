@@ -4,14 +4,22 @@
  * and open the template in the editor.
  */
 package javaapplication1;
+import java.util.Scanner;
 
 /**
  *
  * @author OnniFischer
  */
 public class Kayttoliittyma {
+//    
+//    private Maksukortti kortti;
+//    private Scanner lukija = new Scanner(System.in);
+//    
+//    public void kaynnista(Maksukortti kortti) {
+//        
+//       
+    }
     
     
-    
-    
-}
+
+

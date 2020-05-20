@@ -1,4 +1,5 @@
 package javaapplication1;
+
 import java.util.HashMap;
 
 /**
@@ -8,7 +9,7 @@ import java.util.HashMap;
 public class Maksukortti {
 
     private int saldo;
-    private HashMap<Integer,Integer> ostokset = new HashMap<>();
+    private HashMap<Integer, Integer> ostokset = new HashMap<>();
 
     public Maksukortti(int saldo) {
         this.saldo = saldo;
@@ -17,32 +18,28 @@ public class Maksukortti {
     public void otaRahaa(int luku) {
         int erotus = this.saldo - luku;
         int indeksi = 0;
-        if (erotus > 0) {
-            this.saldo -= luku;          
+        if (erotus > 0 && erotus < this.saldo) {
+            this.saldo = this.saldo - luku;
             this.ostokset.put(indeksi, luku);
-            indeksi++;          
+            indeksi++;
+        } else {
+            System.out.println("Arvoa ei voida vähentää kortilta.");
         }
+
     }
 
     public void lisaaRahaa(int luku) {
-        this.saldo += luku;
+        this.saldo = this.saldo + luku;
     }
 
-    public void tulostaSaldo() {
-        System.out.println(this.saldo);
-    }
-    
     public void tulostaOstokset() {
         for (int i : this.ostokset.keySet()) {
             System.out.println(this.ostokset.get(i));
         }
     }
     
-    public void tulostaArvo(Maksukortti kortti) {
-        System.out.println(kortti.toString());
+    public int getSaldo() {
+        return this.saldo;
     }
 
-    public String toString() {
-        return "Kortilla on rahaa " + this.saldo + " euroa.";
-    }
 }
