@@ -2,23 +2,15 @@ package javaapplication1;
 
 import java.util.HashMap;
 
-/**
- *
- * @author OnniFischer
- */
 public class Maksukortti {
 
     private int saldo;
     private HashMap<Integer, Integer> ostokset = new HashMap<>();
 
-    public Maksukortti(int saldo) {
-        this.saldo = saldo;
-    }
-
     public void otaRahaa(int luku) {
-        int erotus = this.saldo - luku;
+        int erotus =- luku;
         int indeksi = 0;
-        if (erotus > 0 && erotus < this.saldo) {
+        if (erotus > 0 && erotus <= this.saldo) {
             this.saldo = this.saldo - luku;
             this.ostokset.put(indeksi, luku);
             indeksi++;
@@ -34,7 +26,7 @@ public class Maksukortti {
 
     public void tulostaOstokset() {
         for (int i : this.ostokset.keySet()) {
-            System.out.println(this.ostokset.get(i));
+            System.out.println("Ostoksia: " + this.ostokset.get(i));
         }
     }
     

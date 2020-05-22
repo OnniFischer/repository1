@@ -13,16 +13,17 @@ public class Kateinen {
 
     private double saldo;
     private HashMap<Integer, Integer> ostokset = new HashMap<>();
-    private Lompakko lompakko;
+    private Lompakko lompakko = new Lompakko();
+    private int indeksi;
     
 
-    public void otaRahaa(int luku) {
+    public void otaRahaa(double luku) {
         double erotus = this.saldo - luku;
-        int indeksi = 0;
+//        int indeksi = 0;
         if (erotus > 0 && erotus < this.saldo) {
             this.saldo = this.saldo - luku;
-            this.lompakko.lisaaLompakkoon(indeksi, luku);
-            indeksi++;
+            this.lompakko.lisaaLompakkoon(indeksi,luku);
+            this.indeksi++;
         } else {
             System.out.println("Arvoa ei voida vähentää.");
         }
@@ -35,7 +36,7 @@ public class Kateinen {
 
     public void tulostaOstokset() {
         for (int i : this.ostokset.keySet()) {
-            System.out.println(this.ostokset.get(i));
+            System.out.println("Ostoksia: " + this.ostokset.get(i));
         }
     }
     
